@@ -38,57 +38,23 @@
   </head>
   <body>
     <div id="app">
-      <!-- <p>Tang a: {{a}}</p>
-      <p>Tang b: {{b}}</p> -->
-
-      <p>Tang a: {{tanga}}</p>
-      <p>Tang b: {{tangb}}</p>
-
-      <p>Tang a: {{tangaa()}}</p>
-      <p>Tang b: {{tangbb()}}</p>
-
-      <!-- <button @click="tanga">Tang a</button>
-      <button @click="tangb">Tang b</button> -->
-
-      <button @click="a++">Tang a</button>
-      <button @click="b++">Tang b</button>
+      <p>{{diem}}</p>
     </div>
     <script>
-      new Vue({
+      var app = new Vue({
         el: "#app",
         data: {
-          a: 0,
-          b: 0,
+          diem: 8,
         },
-        computed: {
-          tanga: function () {
-            console.log("Tanga-computed");
-            return this.a;
-          },
-          tangb: function () {
-            console.log("Tangb-computed");
-            return this.b;
-          },
-        },
-        methods: {
-          // tanga: function () {
-          //   console.log("Tanga");
-          //   return this.a++;
-          // },
-          // tangb: function () {
-          //   console.log("Tangb");
-          //   return this.b++;
-          // },
-          tangaa: function () {
-            console.log("Tanga-methods");
-            return this.a;
-          },
-          tangbb: function () {
-            console.log("Tangb-methods");
-            return this.b;
+        computed: {},
+        methods: {},
+        watch: {
+          diem: function (newValue) {
+            alert("diem bi thay doi!!!");
           },
         },
       });
+      app.diem = 9;
     </script>
   </body>
 </html>
