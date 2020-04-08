@@ -38,49 +38,15 @@
   </head>
   <body>
     <div id="obj">
-      <div @mousemove="diChuyenChuot">
-        <p>Bấm để tăng or giảm: {{count}}</p>
-        <button @click="Tang">Tăng</button>
-        <button @click="Giam">Giảm</button>
-        <p>
-          {{ count > 10 ? 'Đang vượt quá giới hạn' : 'Đang nằm trong giới hạn'}}
-        </p>
-        <p>{{x}} - {{y}}</p>
-        <div @mousemove.stop="">
-          <p>Dừng sự kiện mousemove</p>
-        </div>
-        <input @keyup.enter="NhapAlert" @input="GhiContent" />
-        <p>{{content}}</p>
-        <input v-model="name" />
-        <p>{{name}}</p>
-      </div>
+      <input @keyup.enter="NhapAlert" />
     </div>
     <script>
       new Vue({
         el: "#obj",
-        data: {
-          count: 0,
-          x: 0,
-          y: 0,
-          content: "",
-          name: "",
-        },
+        data: {},
         methods: {
-          Tang: function () {
-            return this.count++;
-          },
-          Giam: function () {
-            return this.count--;
-          },
-          diChuyenChuot: function (event) {
-            this.x = event.clientX;
-            this.y = event.clientY;
-          },
           NhapAlert: function () {
             alert("Hello baby");
-          },
-          GhiContent: function (event) {
-            this.content = event.target.value;
           },
         },
       });

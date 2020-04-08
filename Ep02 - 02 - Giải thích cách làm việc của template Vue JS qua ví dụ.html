@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Test Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="obj">
+      <p>{{noidung}}</p>
+      <p>{{sayHello()}}</p>
+    </div>
+    <script>
+      new Vue({
+        el: "#obj",
+        data: {
+          noidung: "Hello",
+        },
+        methods: {
+          sayHello: function () {
+            document.write("Say Hello");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

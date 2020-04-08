@@ -7,24 +7,14 @@
   <body>
     <div id="obj">
       <p v-html="testMaHTML"></p>
-      <p v-once>{{noidung}} - {{ sayHello () }}</p>
-      <a v-bind:href="link">Link</a>
     </div>
     <script>
       new Vue({
         el: "#obj",
         data: {
-          noidung: "Hello",
-          link: "#",
           testMaHTML: '<a href="#">Get Pass</a>',
         },
-        methods: {
-          sayHello: function () {
-            // document.write("Say Hello");
-            this.noidung = "Vuejs";
-            return this.noidung;
-          },
-        },
+        methods: {},
       });
     </script>
   </body>

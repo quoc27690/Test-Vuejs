@@ -39,28 +39,31 @@
   </head>
   <body>
     <div id="app">
-      <div class="vuong" @click="color=!color" :class="{do:color}"></div>
-      <div class="vuong" @click="color=!color" :class="{do:color}"></div>
-      <div class="vuong" @click="color=!color" :class="{xanh:color}"></div>
-      <div class="vuong" @click="color=!color" :class="{do:color}"></div>
+      <p>You're a doctor?</p>
+
+      <!-- Nếu sai nó sẽ remove cả phần tử mẹ lẫn con -->
+      <p v-if="xacdinh">Yes, I am <span>a doctor</span></p>
+      <p v-else="">No, I am a teacher</p>
+
+      <button @click="change">Change Condition</button>
+
+      <template v-if="xacdinh">
+        <div>Menu 1</div>
+        <div>Menu 2</div>
+        <div>Menu 3</div>
+      </template>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          color: false,
+          xacdinh: true,
         },
-        computed: {
-          changeColor: function () {
-            return;
-            this.color = !this.color;
-          },
-        },
+        computed: {},
         methods: {
-          // changeColor: function () {
-          //   this.color = !this.color;
-          //   console.log(this.color);
-          // },
+          change: function () {
+            return (this.xacdinh = !this.xacdinh);
+          },
         },
         watch: {},
       });

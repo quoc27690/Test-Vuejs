@@ -20,6 +20,7 @@
       rel="stylesheet"
     />
     <link href="./fontawesome-free-5.13.0-web/css/solid.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -38,57 +39,20 @@
   </head>
   <body>
     <div id="app">
-      <!-- <p>Tang a: {{a}}</p>
-      <p>Tang b: {{b}}</p> -->
-
-      <p>Tang a: {{tanga}}</p>
-      <p>Tang b: {{tangb}}</p>
-
-      <p>Tang a: {{tangaa()}}</p>
-      <p>Tang b: {{tangbb()}}</p>
-
-      <!-- <button @click="tanga">Tang a</button>
-      <button @click="tangb">Tang b</button> -->
-
-      <button >Tang a</button>
-      <button @click="a++">Tang a</button>
-      <button @click="b++">Tang b</button>
+      <div class="vuong" @click="color=!color" :class="{red:color}"></div>
+      <div class="vuong" @click="color=!color" :class="{red:color}"></div>
+      <div class="vuong" @click="color=!color" :class="{green:color}"></div>
+      <div class="vuong" @click="color=!color" :class="{red:color}"></div>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          a: 0,
-          b: 0,
+          color: false,
         },
-        computed: {
-          tanga: function () {
-            console.log("Tanga-computed");
-            return this.a;
-          },
-          tangb: function () {
-            console.log("Tangb-computed");
-            return this.b;
-          },
-        },
-        methods: {
-          // tanga: function () {
-          //   console.log("Tanga");
-          //   return this.a++;
-          // },
-          // tangb: function () {
-          //   console.log("Tangb");
-          //   return this.b++;
-          // },
-          tangaa: function () {
-            console.log("Tanga-methods");
-            return this.a;
-          },
-          tangbb: function () {
-            console.log("Tangb-methods");
-            return this.b;
-          },
-        },
+        computed: {},
+        methods: {},
+        watch: {},
       });
     </script>
   </body>

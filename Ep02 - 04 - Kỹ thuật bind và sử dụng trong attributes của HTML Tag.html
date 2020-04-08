@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Test Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="obj">
+      <a v-bind:href="link">Link</a>
+    </div>
+    <script>
+      new Vue({
+        el: "#obj",
+        data: {
+          link: "#",
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>
