@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>03 - Reactive Properties</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>Current Value: {{value}}</p>
+      <button @click="value += 5">Add 5</button>
+      <button @click="value += 1">Add 1</button>
+      <p>{{result}}</p>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            value: 0,
+          };
+        },
+        computed: {
+          result() {
+            return this.value >= 37 ? "Done" : "Not there yet";
+          },
+        },
+
+        // Nếu dùng method sẽ ko watch được
+        // methods: {
+        //   result() {
+        //     return this.value >= 37 ? "Done" : "Not there yet";
+        //   },
+        // },
+
+        watch: {
+          result() {
+            var vm = this;
+            setTimeout(function () {
+              return (vm.value = 0);
+            }, 2000);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

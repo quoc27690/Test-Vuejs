@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>04 - Styling</title>
+    <!-- Vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Import css -->
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <button @click="startEffect">Start Effect</button>
+      <div id="effect" :class="effectClasses"></div>
+      <hr />
+
+      <!-- Bình thường sẽ như vậy -->
+      <div class="float blue text-color">I got no class</div>
+      <!-- Vue sẽ như vậy -->
+      <div :class="[float,'blue','text-color']">I got no class</div>
+      <hr />
+
+      <input type="text" v-model="userClasses" />
+      <div :class="['visible', userClasses]"></div>
+      <hr />
+
+      <input type="text" v-model="userClasses" />
+      <input type="text" v-model="isVisible" />
+      <div :class="[{visible : isVisible}, userClasses]"></div>
+      <hr />
+
+      <!-- Khi tạo style ở instance data thì khi bind phải dùng :style ko được dùng :class -->
+      <input type="text" v-model="myStyle.backgroundColor" />
+      <div :style="myStyle"></div>
+      <hr />
+
+      <button @click="startProgress">Start Progress</button>
+      <div class="progress-bar">
+        <div :style="progressBar"></div>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            effectClasses: {
+              highlight: false,
+              shrink: true,
+            },
+            float: "float",
+            userClasses: "",
+            isVisible: true,
+            myStyle: {
+              width: "100px",
+              height: "150px",
+              backgroundColor: "green",
+            },
+            progressBar: {
+              width: "0px",
+              height: "20px",
+              backgroundColor: "red",
+            },
+          };
+        },
+        computed: {},
+        methods: {
+          startEffect() {
+            var vm = this;
+            return setInterval(() => {
+              vm.effectClasses.highlight = !vm.effectClasses.highlight;
+              vm.effectClasses.shrink = !vm.effectClasses.shrink;
+            }, 500);
+          },
+
+          startProgress() {
+            var vm = this;
+            var width = 0;
+            var interval = setInterval(() => {
+              if (width < 300) {
+                width += 10;
+                vm.progressBar.width = width + "px";
+              } else {
+                clearInterval(interval);
+              }
+            }, 100);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

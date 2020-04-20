@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>02 - Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="showAlert">Show Alert</button>
+      <hr />
+      <input type="text" @keydown="value = $event.target.value" />
+      <p>{{value}}</p>
+      <hr />
+      <input type="text" @keydown.enter="value = $event.target.value" />
+      <p>{{value}}</p>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            value: "",
+          };
+        },
+        methods: {
+          showAlert() {
+            alert("Show Alert");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

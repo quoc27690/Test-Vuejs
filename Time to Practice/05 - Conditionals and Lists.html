@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>05 - Conditionals and Lists</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="isShow = !isShow">Toggle</button>
+      <p v-if="isShow">You either see me ...</p>
+      <p v-else>...or me</p>
+      <p v-show="isShow">You either see me ...</p>
+      <p v-show="!isShow">...or me</p>
+      <hr />
+
+      <!-- Đối tượng lặp là 1 array -->
+      <ul>
+        <li v-for="(item,index) in array">{{index}} - {{item}}</li>
+      </ul>
+      <hr />
+
+      <!-- Đối tượng lặp là 1 Obj -->
+      <ul>
+        <li v-for="(value,key,index) in myObject">
+          {{key}} : {{value}} | {{index}}
+        </li>
+      </ul>
+
+      <!-- Lọc qua tất cả các phần tử
+      Array.isArray() Là hàm kiểm trả có phải là 1 array ko -->
+      <ul>
+        <li v-for="value in testData">
+          <template v-if="Array.isArray(value)">
+            <div v-for="item in value">{{item}}</div>
+          </template>
+          <template v-else>
+            {{value}}
+          </template>
+        </li>
+      </ul>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            isShow: true,
+            array: ["a", "b", "c", "d"],
+            myObject: {
+              title: "Lord of the Rings",
+              author: "J.R.R. Tolkiens",
+              books: "3",
+            },
+            testData: {
+              name: "TESTOBJECT",
+              id: 10,
+              data: [1.67, 1.33, 0.98, 2.21],
+            },
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
