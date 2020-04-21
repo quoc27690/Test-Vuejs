@@ -1,30 +1,38 @@
 <template>
-  <div>
-    <div class="form-group">
-      <label>First Name</label>
-      <input type="text" class="form-control" :value="firstName" />
+    <div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" :value="firtName" @input="nameChanged(true, $event)">
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" :value="lastName" @input="nameChanged(false, $event)">
+        </div>
     </div>
-    <div class="form-group">
-      <label>Last Name</label>
-      <input type="text" class="form-control" :value="lastName" />
-    </div>
-  </div>
 </template>
 
 <script>
-export default {
-  props: ["value"],
-  // Cùng nhận giá trị value nhưng dùng 2 trường khác nhau nên dùng computed
-  computed: {
-    firstName() {
-      return this.value.split(" ")[0];
-    },
-    lastName() {
-      return this.value.split(" ")[1];
+    export default {
+        props: ['value'],
+        methods: {
+            nameChanged(isFirst, event) {
+                let name = '';
+                if (isFirst) {
+                    name = event.target.value + ' ' + this.lastName;
+                } else {
+                    name = this.firstName + ' ' + event.target.value;
+                }
+                this.value = name;
+                this.$emit('input', this.value);
+            }
+        },
+        computed: {
+            firstName() {
+                return this.value.split(" ")[0];
+            },
+            lastName() {
+                return this.value.split(" ")[1];
+            }
+        }
     }
-  }
-};
 </script>
-
-<style scoped>
-</style>
