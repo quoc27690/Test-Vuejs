@@ -4,7 +4,7 @@
       <div class="col-12">
         <p v-vidu03>Ví dụ 03</p>
         <p v-vidu04="'red'">Ví dụ 04</p>
-        <p v-vidu05:background="'blue'">Ví dụ 05</p>
+        <p v-vidu05:background="'greenA'">Ví dụ 05 - arg</p>
         <p v-vidu05="'blue'">Ví dụ 05</p>
         <p v-vidu06:background.delay="'grey'">Ví dụ 06 - Tạo ở global</p>
         <p v-local-vidu07:background.delay="'grey'">Ví dụ 07 - Tạo ở local</p>

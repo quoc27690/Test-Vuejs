@@ -3,9 +3,12 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h1>Filter</h1>
+        <!-- Khi sử dụng nhiều filter thì nó sẽ pare dần: text -> toLowerCase ->toUpperCase -->
         <p>{{text|toLowerCase|toUpperCase}}</p>
       </div>
     </div>
+    <hr />
+
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h1>Filter Products</h1>
@@ -21,20 +24,31 @@
         </div>
       </div>
     </div>
+    <hr />
+
     <List></List>
   </div>
 </template>
 
 <script>
-import { ProductsMixin } from "./Mixins/Mixins.js";
+import { productsMixin } from "./mixins/products.mixin.js";
 import List from "./components/List";
 export default {
-  mixins: [ProductsMixin],
+  data() {
+    return {
+      text: "Hello Everyone"
+    };
+  },
+
+  mixins: [productsMixin],
+
+  // a local Filter
   filters: {
     toLowerCase: function(text) {
       return text.toLowerCase();
     }
   },
+
   components: {
     List
   },

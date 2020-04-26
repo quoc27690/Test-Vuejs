@@ -1,7 +1,6 @@
-export const ProductsMixin = {
+export const productsMixin = {
   data() {
     return {
-      text: "Hello Everyone",
       products: ["Iphone", "Samsung", "Bphone", "Xiaomi", "Nokia", "Vphone"],
       filterProducts: ""
     };
@@ -14,6 +13,6 @@ export const ProductsMixin = {
     }
   },
   created() {
-    console.log("Create from Mixin!");
+    console.log("Create from mixin!");
   }
 };
